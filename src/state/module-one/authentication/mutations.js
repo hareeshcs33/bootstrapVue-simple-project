@@ -7,5 +7,9 @@ export default {
         state = {
             userData: [...state.userData]
         };
+    },
+    setTodosList(state, todosLists){
+        console.log('todosLists',todosLists);
+        state.todosList = [...todosLists];
     }
 }

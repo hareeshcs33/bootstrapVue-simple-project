@@ -10,7 +10,8 @@ import customersMutations from './customers/mutations'
 
 const state = {
     name: 'hareesh',
-    userData: []
+    userData: [],
+    todosList: null,
 }
 
 const getters = {

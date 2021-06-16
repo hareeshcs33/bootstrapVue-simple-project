@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <b-container class="home">
     <h1>Home</h1>
     <b-button variant="primary">First</b-button>
     <div>
@@ -19,7 +19,9 @@
       <input type="submit" value="submit" @click.prevent="submitForm" />
     </form>
     <pre>{{userData}}</pre>
-  </div>
+    <b-button @click="getTodosList" squared class="mx-2">todos</b-button>
+    <pre>{{todosList}}</pre>
+  </b-container>
 </template>
 
 <script>
@@ -40,11 +42,17 @@ export default {
     },
     userData(){
       return this.$store.getters.getUserData;
+    },
+    todosList(){
+      return this.$store.getters.getTodosList;
     }
   },
   methods: {
     submitForm(){
       this.$store.dispatch('userData', this.formData);
+    },
+    getTodosList(){
+      this.$store.dispatch('setTodosList');
     }
   }
 }

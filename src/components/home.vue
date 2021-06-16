@@ -1,14 +1,50 @@
 <template>
   <div class="home">
     <h1>Home</h1>
+    <b-button variant="primary">First</b-button>
+    <div>
+      <b-button>Button</b-button>
+      <b-button variant="danger">Button</b-button>
+      <b-button variant="success">Button</b-button>
+      <b-button variant="outline-primary">Button</b-button>
+    </div>
+    <div>
+      username: {{username}}
+    </div>
+    <form>
+      <input type="text" placeholder="first name" v-model="formData.first_name"/>
+      <input type="text" placeholder="last name" v-model="formData.last_name"/>
+      <input type="text" placeholder="email" v-model="formData.email"/>
+      <input type="password" placeholder="password" v-model="formData.password "/>
+      <input type="submit" value="submit" @click.prevent="submitForm" />
+    </form>
+    <pre>{{userData}}</pre>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
   data () {
     return {
+      formData: {
+        first_name: null,
+        last_name: null,
+        email: null,
+        password: null,
+      }
+    }
+  },
+  computed: {
+    username(){
+      return this.$store.getters.getUserName;
+    },
+    userData(){
+      return this.$store.getters.getUserData;
+    }
+  },
+  methods: {
+    submitForm(){
+      this.$store.dispatch('userData', this.formData);
     }
   }
 }

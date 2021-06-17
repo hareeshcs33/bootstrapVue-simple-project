@@ -7,6 +7,11 @@ export const userData = async ({commit}, userData) => {
 }
 
 export const setTodosList = async ({commit}) => {
-    let todosLists = await todosList();
-    commit('setTodosList', todosLists, true);
+    let todosLists
+    try {
+        todosLists = await todosList();
+        commit('setTodosList', todosLists, true);
+    } catch(err) {
+        console.log(err);
+    }
 }

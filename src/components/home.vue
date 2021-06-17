@@ -21,6 +21,10 @@
     <pre>{{userData}}</pre>
     <b-button @click="getTodosList" squared class="mx-2">todos</b-button>
     <pre>{{todosList}}</pre>
+    <div>
+      <router-link to="/user/1">user one</router-link>
+      <router-link to="/user/2">user two</router-link>
+    </div>
   </b-container>
 </template>
 
